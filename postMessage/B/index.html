@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>datas</title>
+</head>
+<body>
+  <h1>datas</h1>
+  <p>init</p>
+  <script>
+    var p = document.getElementsByTagName('p')[0];
+    // 监听message事件获取数据
+    var onmessage = function (event) {
+      var data = event.data; // 消息  
+      var origin = event.origin; // 消息来源地址  
+      var source = event.source; // 源Window对象  
+      if (origin === 'http://www.postmessage.com') {
+        console.log('收到信息:' + data);
+      }  
+    };  
+    if (typeof window.addEventListener !== 'undefined') {  
+      window.addEventListener('message', onmessage, false);  
+    } else if (typeof window.attachEvent !== 'undefined') {  
+      //for ie  
+      window.attachEvent('onmessage', onmessage);  
+    }
+  </script>
+</body>
+</html>

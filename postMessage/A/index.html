@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>postMessage</title>
+</head>
+<body>
+  <h1>postMessage</h1>
+  <script>
+     var iframe = document.createElement('iframe');
+     iframe.src = 'http://www.datas.com';
+     iframe.style.display = 'none';
+     iframe.addEventListener('load', function() {
+       iframe.contentWindow.postMessage('come from postMessage page', 'http://www.datas.com');
+     })
+     document.body.appendChild(iframe);
+  </script>
+</body>
+</html>

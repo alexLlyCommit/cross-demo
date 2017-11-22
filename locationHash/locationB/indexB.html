@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>locationB</title>
+</head>
+<body>
+  <h1>locationB</h1>
+  <script>
+    var name = 'hello this is locationB';
+    if (location.hash === '#abc') {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      // 把locationB的数据通过iframe即locationC的hash进行保存传送
+      iframe.src = `http://www.hasha.com/c#${name}`; 
+      document.body.appendChild(iframe);
+    }
+  </script>
+</body>
+</html>

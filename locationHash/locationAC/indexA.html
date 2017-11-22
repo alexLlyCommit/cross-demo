@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>locationA</title>
+</head>
+<body>
+  <h1>locationA</h1>
+  <script>
+    var iframe = document.createElement('iframe');
+    // 设置一个隐藏的需要跨域的iframe页面地址加上hash 获取跨域页面内容属性方法的关键
+    iframe.src = 'http://www.hashb.com/#abc';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    // 监听浏览器地址的location的hash变化获取数据
+    function getHash() {
+      if (location.hash) {
+        var data = location.hash.substring(1);
+      }
+    }
+    setInterval(getHash, 1000)
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>domainA</title>
+</head>
+<body>
+  <iframe id = "iframe" src="http://www.b.domain.com" onload = "test()"></iframe>
+  <h1>domainA</h1>
+  <script>
+    document.domain = 'domain.com';
+    function test(){
+      var iframe = document.getElementById('iframe');
+      var win = iframe.contentWindow; // 可以获取到iframe里的window对象，但该window对象的属性和方法几乎是不可用的
+      var doc = win.document; // 这里获取不到iframe里的document对象
+      var name = win.name; // 这里同样获取不到window对象的name属性
+    }
+  </script>
+</body>
+</html>

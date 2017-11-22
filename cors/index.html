@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cors</title>
+</head>
+<body>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://127.0.0.1:3000', true);
+    xhr.withCredentials = true; // cors请求默认是不带cookie的
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=gb2312");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200 || xhr.status === 304) {
+        console.log(xhr.response);
+      }
+    }
+    xhr.send(null);
+  </script>
+</body>
+</html>
